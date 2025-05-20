@@ -2,13 +2,19 @@ import "../styles/Child.css";
 
 import React, {useState} from "react";
 
-const Selection = ({applyColor}) => {
-    const [style, setStyle] = useState({})
+const ColourSelector = ({ config, selectNextBackground }) => {
+  const handleClick = () => {
+    selectNextBackground({ background: config.background });
+  };
 
-    function handleClick(){
-        applyColor(setStyle)
-    }
-
-  return <div className="fix-box" style={style} onClick={handleClick}></div>;
+  return (
+    <button
+      className={config.classname}
+      onClick={handleClick}
+    >
+      {config.label}
+    </button>
+  );
 };
-export default Selection;
+
+export default ColourSelector;

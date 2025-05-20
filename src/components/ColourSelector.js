@@ -1,18 +1,15 @@
-import "../styles/Child.css";
-
-import React, {useState} from "react";
+import React from 'react';
 
 const ColourSelector = ({ config, selectNextBackground }) => {
-  const handleClick = () => {
-    selectNextBackground({ background: config.background });
-  };
+  const { key, label, classname, background } = config;
 
   return (
     <button
-      className={config.classname}
-      onClick={handleClick}
+      className={classname}
+      data-testid={key}
+      onClick={() => selectNextBackground({ background })}
     >
-      {config.label}
+      {label}
     </button>
   );
 };
